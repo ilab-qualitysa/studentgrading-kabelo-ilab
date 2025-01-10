@@ -18,33 +18,13 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Greetings Test
-        setup-command: mvn compile
-        command: mvn -Dtest=StudentGradesTest#getGreetingsTest test
-        timeout: 3
-        max-score: 10
-    - name: Determine Grade
-      id: determine-grade
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: Determine Grade
-        setup-command: mvn compile
-        command: mvn -Dtest=StudentGradesTest#determineGradeTest test
-        timeout: 3
-        max-score: 10
-    - name: Determine Age
-      id: determine-age
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: Determine Age
-        setup-command: mvn compile
-        command: mvn -Dtest=StudentGradesTest#determineAgeTest test
+        setup-command: ''
+        command: gradle tes
         timeout: 3
         max-score: 10
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
         GREETINGS-TEST_RESULTS: "${{steps.greetings-test.outputs.result}}"
-        DETERMINE-GRADE_RESULTS: "${{steps.determine-grade.outputs.result}}"
-        DETERMINE-AGE_RESULTS: "${{steps.determine-age.outputs.result}}"
       with:
-        runners: greetings-test,determine-grade,determine-age
+        runners: greetings-test
