@@ -2,7 +2,7 @@ public class StudentGrades {
 
     // TODO: define the 'getGreetings()' method
 	 public static String getGreetings(){
-        return "Welcome";
+        return "Welcome To Java Training";
     }
 
     // TODO: define the 'determineGrade()' method
